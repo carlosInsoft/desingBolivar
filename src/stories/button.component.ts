@@ -17,7 +17,7 @@ export default class ButtonComponent {
    * Is this the principal call to action on the page?
    */
   @Input()
-  primary = false;
+  state = false;
 
   /**
    * What background color to use
@@ -37,7 +37,7 @@ export default class ButtonComponent {
    * @required
    */
   @Input()
-  label = 'Button';
+  label = 'Continuar';
 
   /**
    * Optional click handler
@@ -46,7 +46,7 @@ export default class ButtonComponent {
   onClick = new EventEmitter<Event>();
 
   public get classes(): string[] {
-    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+    const mode = this.state ? 'storybook-button--enabled' : 'storybook-button--disabled';
 
     return ['storybook-button', `storybook-button--${this.size}`, mode];
   }
